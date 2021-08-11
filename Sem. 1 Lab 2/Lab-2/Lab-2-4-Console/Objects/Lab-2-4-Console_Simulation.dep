@@ -1,0 +1,2 @@
+Dependencies for Project 'Lab-2-4-Console', Target 'Simulation': (DO NOT MODIFY !)
+F (.\Lab-2-4-Console.s)(0x5DA981A5)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 528"--list .\listings\lab-2-4-console.lst --xref -o .\objects\lab-2-4-console.o --depend .\objects\lab-2-4-console.d)

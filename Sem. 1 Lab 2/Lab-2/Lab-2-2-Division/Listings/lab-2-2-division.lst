@@ -1,0 +1,75 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;
+    2 00000000         ; CSU11021 Introduction to Computing I 2019/2020
+    3 00000000         ; Division (inefficient!)
+    4 00000000         ;
+    5 00000000         
+    6 00000000                 AREA             RESET, CODE, READONLY
+    7 00000000                 ENTRY
+    8 00000000         
+    9 00000000 E3A02006        MOV              R2, #6
+   10 00000004 E3A03003        MOV              R3, #3
+   11 00000008         while
+   12 00000008 E1520003        CMP              R2, R3
+   13 0000000C 9A000003        BLS              lowers
+   14 00000010 E0422003        SUB              R2, R2, R3
+   15 00000014 E2820001        ADD              R0, R2, #1
+   16 00000018 E0800002        ADD              R0, R0, R2
+   17 0000001C EAFFFFF9        B                while
+   18 00000020         lowers
+   19 00000020 E1A01002        MOV              R1, R2
+   20 00000024         
+   21 00000024 EAFFFFFE 
+                       STOP    B                STOP
+   22 00000028         
+   23 00000028                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\lab-2-2-division.d -o.\objects\lab-2-2-division.o -IC:\Keil_v5\ARM\RV31\
+INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine="__
+EVAL SETA 1" --predefine="__UVISION_VERSION SETA 528" --list=.\listings\lab-2-2
+-division.lst Lab-2-2-Division.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 6 in file Lab-2-2-Division.s
+   Uses
+      None
+Comment: RESET unused
+STOP 00000024
+
+Symbol: STOP
+   Definitions
+      At line 21 in file Lab-2-2-Division.s
+   Uses
+      At line 21 in file Lab-2-2-Division.s
+Comment: STOP used once
+lowers 00000020
+
+Symbol: lowers
+   Definitions
+      At line 18 in file Lab-2-2-Division.s
+   Uses
+      At line 13 in file Lab-2-2-Division.s
+Comment: lowers used once
+while 00000008
+
+Symbol: while
+   Definitions
+      At line 11 in file Lab-2-2-Division.s
+   Uses
+      At line 17 in file Lab-2-2-Division.s
+Comment: while used once
+4 symbols
+336 symbols in table
