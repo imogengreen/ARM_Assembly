@@ -1,0 +1,52 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;
+    2 00000000         ; CSU11021 Introduction to Computing I 2019/2020
+    3 00000000         ; First Program
+    4 00000000         ;
+    5 00000000         
+    6 00000000                 AREA             RESET, CODE, READONLY
+    7 00000000                 ENTRY
+    8 00000000         
+    9 00000000 E1A00001        MOV              R0, R1
+   10 00000004 E0800000        ADD              R0, R0, R0
+   11 00000008 E0800000        ADD              R0, R0, R0
+   12 0000000C E0800000        ADD              R0, R0, R0
+   13 00000010         
+   14 00000010 EAFFFFFE 
+                       STOP    B                STOP
+   15 00000014         
+   16 00000014                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\lab-1-2-firstprogram.d -o.\objects\lab-1-2-firstprogram.o -IC:\Keil_v5\A
+RM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --prede
+fine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 528" --list=.\listings
+\lab-1-2-firstprogram.lst Lab-1-2-FirstProgram.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 6 in file Lab-1-2-FirstProgram.s
+   Uses
+      None
+Comment: RESET unused
+STOP 00000010
+
+Symbol: STOP
+   Definitions
+      At line 14 in file Lab-1-2-FirstProgram.s
+   Uses
+      At line 14 in file Lab-1-2-FirstProgram.s
+Comment: STOP used once
+2 symbols
+334 symbols in table

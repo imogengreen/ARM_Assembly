@@ -1,0 +1,6 @@
+--cpu ARM7TDMI
+".\objects\lab-1-5-asciivalue.o"
+--scatter ".\lpc2468Flash.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\Lab-1-5-AsciiValue.map" -o .\Objects\Lab-1-5-AsciiValue.axf

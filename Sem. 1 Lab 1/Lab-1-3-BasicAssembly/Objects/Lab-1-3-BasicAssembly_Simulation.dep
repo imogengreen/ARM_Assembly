@@ -1,0 +1,2 @@
+Dependencies for Project 'Lab-1-3-BasicAssembly', Target 'Simulation': (DO NOT MODIFY !)
+F (.\Lab-1-3-BasicAssembly.s)(0x5D9707A0)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 528"--list .\listings\lab-1-3-basicassembly.lst --xref -o .\objects\lab-1-3-basicassembly.o --depend .\objects\lab-1-3-basicassembly.d)

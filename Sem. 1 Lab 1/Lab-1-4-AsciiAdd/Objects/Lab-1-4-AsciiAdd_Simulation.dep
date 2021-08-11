@@ -1,0 +1,2 @@
+Dependencies for Project 'Lab-1-4-AsciiAdd', Target 'Simulation': (DO NOT MODIFY !)
+F (.\Lab-1-4-AsciiAdd.s)(0x5D9479C9)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 528"--list .\listings\lab-1-4-asciiadd.lst --xref -o .\objects\lab-1-4-asciiadd.o --depend .\objects\lab-1-4-asciiadd.d)
