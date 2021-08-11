@@ -1,0 +1,99 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;
+    2 00000000         ; CSU11021 Introduction to Computing I 2019/2020
+    3 00000000         ; 64-bit Shift
+    4 00000000         ;
+    5 00000000         
+    6 00000000                 AREA             RESET, CODE, READONLY
+    7 00000000                 ENTRY
+    8 00000000         
+    9 00000000 E3A01A05        LDR              R1, =0x00005000
+   10 00000004         
+   11 00000004 E3A02000        LDR              R2, =0
+   12 00000008 E3A03000        LDR              R3, =0
+   13 0000000C         for
+   14 0000000C E3520020        CMP              R2, #32
+   15 00000010 2A000008        BHS              endFor
+   16 00000014         
+   17 00000014 E1B010A1        MOVS             R1, R1, LSR #1
+   18 00000018 2A000000        BCS              carrySet
+   19 0000001C E3A03000        MOV              R3, #0
+   20 00000020         carrySet
+   21 00000020 E2833001        ADD              R3, R3, #1
+   22 00000024 E1530004        CMP              R3, R4
+   23 00000028 9A000000        BLS              doNotChange
+   24 0000002C E1A04003        MOV              R4, R3
+   25 00000030         doNotChange
+   26 00000030 E2822001        ADD              R2, R2, #1
+   27 00000034 EAFFFFF4        B                for
+   28 00000038         endFor
+   29 00000038 EAFFFFFE 
+                       STOP    B                STOP
+   30 0000003C         
+   31 0000003C                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\lab-4-2-shift64.d -o.\objects\lab-4-2-shift64.o -IC:\Keil_v5\ARM\RV31\IN
+C -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine="__EV
+AL SETA 1" --predefine="__UVISION_VERSION SETA 528" --list=.\listings\lab-4-2-s
+hift64.lst Lab-4-2-Shift64.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 6 in file Lab-4-2-Shift64.s
+   Uses
+      None
+Comment: RESET unused
+STOP 00000038
+
+Symbol: STOP
+   Definitions
+      At line 29 in file Lab-4-2-Shift64.s
+   Uses
+      At line 29 in file Lab-4-2-Shift64.s
+Comment: STOP used once
+carrySet 00000020
+
+Symbol: carrySet
+   Definitions
+      At line 20 in file Lab-4-2-Shift64.s
+   Uses
+      At line 18 in file Lab-4-2-Shift64.s
+Comment: carrySet used once
+doNotChange 00000030
+
+Symbol: doNotChange
+   Definitions
+      At line 25 in file Lab-4-2-Shift64.s
+   Uses
+      At line 23 in file Lab-4-2-Shift64.s
+Comment: doNotChange used once
+endFor 00000038
+
+Symbol: endFor
+   Definitions
+      At line 28 in file Lab-4-2-Shift64.s
+   Uses
+      At line 15 in file Lab-4-2-Shift64.s
+Comment: endFor used once
+for 0000000C
+
+Symbol: for
+   Definitions
+      At line 13 in file Lab-4-2-Shift64.s
+   Uses
+      At line 27 in file Lab-4-2-Shift64.s
+Comment: for used once
+6 symbols
+338 symbols in table

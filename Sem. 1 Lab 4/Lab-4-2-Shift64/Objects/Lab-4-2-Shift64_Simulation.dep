@@ -1,0 +1,2 @@
+Dependencies for Project 'Lab-4-2-Shift64', Target 'Simulation': (DO NOT MODIFY !)
+F (.\Lab-4-2-Shift64.s)(0x5DECE6CB)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 528"--list .\listings\lab-4-2-shift64.lst --xref -o .\objects\lab-4-2-shift64.o --depend .\objects\lab-4-2-shift64.d)

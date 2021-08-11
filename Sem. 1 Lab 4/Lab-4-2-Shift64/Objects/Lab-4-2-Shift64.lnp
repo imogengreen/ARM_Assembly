@@ -1,0 +1,6 @@
+--cpu ARM7TDMI
+".\objects\lab-4-2-shift64.o"
+--scatter ".\lpc2468Flash.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\Lab-4-2-Shift64.map" -o .\Objects\Lab-4-2-Shift64.axf
