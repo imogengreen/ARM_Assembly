@@ -1,0 +1,2 @@
+Dependencies for Project 'Lab-3-3-StrRev', Target 'Simulation': (DO NOT MODIFY !)
+F (.\Lab-3-3-StrRev.s)(0x5DCE6359)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 528"--list .\listings\lab-3-3-strrev.lst --xref -o .\objects\lab-3-3-strrev.o --depend .\objects\lab-3-3-strrev.d)
