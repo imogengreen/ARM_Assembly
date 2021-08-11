@@ -1,2 +1,0 @@
-Dependencies for Project 'Lab-2-1-FlowControl', Target 'Simulation': (DO NOT MODIFY !)
-F (.\Lab-2-1-FlowControl.s)(0x5D93654A)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v528\ARM\RV31\INC-IC:\Keil_v528\ARM\CMSIS\Include-IC:\Keil_v528\ARM\INC\Philips--pd "__UVISION_VERSION SETA 528"--list .\listings\lab-2-1-flowcontrol.lst --xref -o .\objects\lab-2-1-flowcontrol.o --depend .\objects\lab-2-1-flowcontrol.d)
