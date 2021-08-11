@@ -1,0 +1,197 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;
+    2 00000000         ; CS1022 Introduction to Computing II 2018/2019
+    3 00000000         ; Lab 2 - Upper Triangular
+    4 00000000         ;
+    5 00000000         
+    6 00000000 00000004 
+                       N       EQU              4
+    7 00000000         
+    8 00000000                 AREA             RESET, CODE, READONLY
+    9 00000000                 ENTRY
+   10 00000000         
+   11 00000000         ; initialize system stack pointer (SP)
+   12 00000000 E59FD08C        LDR              SP, =0x40010000
+   13 00000004         
+   14 00000004         ;
+   15 00000004         ; write your program here to determine whether ARR_A
+   16 00000004         ;   (below) is a matrix in Upper Triangular form.
+   17 00000004         ;
+   18 00000004         ; Store 1 in R0 if the matrix is in Upper Triangular for
+                       m
+   19 00000004         ;   and zero otherwise.
+   20 00000004         ;
+   21 00000004         
+   22 00000004 E3A01001        LDR              R1, =1      ; i counter --> sta
+                                                            rt at 1 as it will 
+                                                            begin in the second
+                                                             row; need not chec
+                                                            k the very first ro
+                                                            w
+   23 00000008 E3A02000        LDR              R2, =0      ; j counter --> hav
+                                                            e to check the very
+                                                             first column
+   24 0000000C E3A03004        LDR              R3, =N      ; dimensions of arr
+                                                            ay (N rows, N colum
+                                                            ns --> square matri
+                                                            x)
+   25 00000010 E59F4080        LDR              R4, =ARR_A  ; initialise addres
+                                                            s of array
+   26 00000014         
+   27 00000014         start
+   28 00000014 E1520003        CMP              R2, R3      ; compare rows chec
+                                                            ked to the rows to 
+                                                            check (N) --> if (i
+                                                            <N)
+   29 00000018 2A00000C        BHS              endLoop1    ; if greater than o
+                                                            r equal to, end the
+                                                             loop
+   30 0000001C         loop
+   31 0000001C E2416001        SUB              R6, R1, #1  ; i-1
+   32 00000020 E1520006        CMP              R2, R6      ; if (j>i-1)
+   33 00000024 8A000009        BHI              endLoop1    ; branch out of the
+                                                             loop
+   34 00000028         
+   35 00000028 E0070391        MUL              R7, R1, R3  ; row*rowSize
+   36 0000002C E0877002        ADD              R7, R7, R2  ; index of array (f
+                                                            rom 2D to 1D)
+   37 00000030 E7945107        LDR              R5, [R4, R7, LSL #2] ; loads th
+                                                            e element from this
+                                                             position into R5
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   38 00000034         
+   39 00000034 E3550000        CMP              R5, #0
+   40 00000038 1A000003        BNE              endLoop     ; branch out if not
+                                                             zero
+   41 0000003C E2822001        ADD              R2, R2, #1  ; j++
+   42 00000040 E2811001        ADD              R1, R1, #1  ; i++
+   43 00000044 E3A00001        LDR              R0, =1      ; sets R0 to be 1 i
+                                                            f Upper Triangle
+   44 00000048 EAFFFFF1        B                start
+   45 0000004C         endLoop
+   46 0000004C E3A00000        LDR              R0, =0
+   47 00000050         endLoop1
+   48 00000050         
+   49 00000050         
+   50 00000050 EAFFFFFE 
+                       STOP    B                STOP
+   51 00000054         
+   52 00000054         
+   53 00000054         ;
+   54 00000054         ; test data
+   55 00000054         ;
+   56 00000054         
+   57 00000054 00000001 
+              00000002 
+              00000003 
+              00000004 ARR_A   DCD              1,  2,  3,  4
+   58 00000064 00000000 
+              00000006 
+              00000007 
+              00000008         DCD              0,  6,  7,  8
+   59 00000074 00000000 
+              00000000 
+              0000000B 
+              0000000C         DCD              0,  0, 11, 12
+   60 00000084 00000000 
+              00000000 
+              00000000 
+              00000010         DCD              0,  0,  0, 16
+   61 00000094         
+   62 00000094                 END
+              40010000 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\lab2-ut.d -o.\objects\lab2-ut.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\A
+RM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --pre
+define="__UVISION_VERSION SETA 528" --list=.\listings\lab2-ut.lst lab2-ut.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ARR_A 00000054
+
+Symbol: ARR_A
+   Definitions
+      At line 57 in file lab2-ut.s
+   Uses
+      At line 25 in file lab2-ut.s
+Comment: ARR_A used once
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 8 in file lab2-ut.s
+   Uses
+      None
+Comment: RESET unused
+STOP 00000050
+
+Symbol: STOP
+   Definitions
+      At line 50 in file lab2-ut.s
+   Uses
+      At line 50 in file lab2-ut.s
+Comment: STOP used once
+endLoop 0000004C
+
+Symbol: endLoop
+   Definitions
+      At line 45 in file lab2-ut.s
+   Uses
+      At line 40 in file lab2-ut.s
+Comment: endLoop used once
+endLoop1 00000050
+
+Symbol: endLoop1
+   Definitions
+      At line 47 in file lab2-ut.s
+   Uses
+      At line 29 in file lab2-ut.s
+      At line 33 in file lab2-ut.s
+
+loop 0000001C
+
+Symbol: loop
+   Definitions
+      At line 30 in file lab2-ut.s
+   Uses
+      None
+Comment: loop unused
+start 00000014
+
+Symbol: start
+   Definitions
+      At line 27 in file lab2-ut.s
+   Uses
+      At line 44 in file lab2-ut.s
+Comment: start used once
+7 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+N 00000004
+
+Symbol: N
+   Definitions
+      At line 6 in file lab2-ut.s
+   Uses
+      At line 24 in file lab2-ut.s
+Comment: N used once
+1 symbol
+342 symbols in table
