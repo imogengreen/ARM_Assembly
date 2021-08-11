@@ -1,0 +1,2 @@
+Dependencies for Project 'Lab-3-6-Intersection', Target 'Simulation': (DO NOT MODIFY !)
+F (.\Lab-3-6-Intersection.s)(0x5DD3BCB3)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 528"--list .\listings\lab-3-6-intersection.lst --xref -o .\objects\lab-3-6-intersection.o --depend .\objects\lab-3-6-intersection.d)

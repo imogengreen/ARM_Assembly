@@ -1,0 +1,241 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;
+    2 00000000         ; CSU11021 Introduction to Computing I 2019/2020
+    3 00000000         ; Intersection
+    4 00000000         ;
+    5 00000000         
+    6 00000000                 AREA             RESET, CODE, READONLY
+    7 00000000                 ENTRY
+    8 00000000         
+    9 00000000 E3A00101        LDR              R0, =0x40000000 
+                                                            ; address of sizeC
+   10 00000004 E3A01109        LDR              R1, =0x40000002 
+                                                            ; address of elemsC
+                                                            
+   11 00000008 E5903000        LDR              R3,[r0]
+   12 0000000C E1D030B0        LDRH             R3, [R0]
+   13 00000010 E5D03000        LDRB             R3, [R0]
+   14 00000014 E5913000        LDR              R3,[r1]
+   15 00000018 E1D130B0        LDRH             R3, [R1]
+   16 0000001C E5D13000        LDRB             R3, [R1]
+   17 00000020 E3A0110D        LDR              R1, =0x40000003 
+                                                            ; address of elemsC
+                                                            
+   18 00000024 E5913000        LDR              R3,[r1]
+   19 00000028 E1D130B0        LDRH             R3, [R1]
+   20 0000002C E5D13000        LDRB             R3, [R1]
+   21 00000030         
+   22 00000030 E59F60AC        LDR              R6, =sizeA  ; address of sizeA
+   23 00000034 E5962000        LDR              R2, [R6]    ; load sizeA
+   24 00000038 E59F30A8        LDR              R3, =elemsA ; address of elemsA
+                                                            
+   25 0000003C         
+   26 0000003C E59F60A8        LDR              R6, =sizeB  ; address of sizeB
+   27 00000040 E5964000        LDR              R4, [R6]    ; load sizeB
+   28 00000044 E59F50A4        LDR              R5, =elemsB ; address of elemsB
+                                                            
+   29 00000048         
+   30 00000048         ;
+   31 00000048         ; Your program to compute the interaction of A and B goe
+                       s here
+   32 00000048         ;
+   33 00000048         ; Store the size of the intersection in memory at the ad
+                       dress in R0
+   34 00000048         ;
+   35 00000048         ; Store the elements in the intersection in memory begin
+                       ning at the
+   36 00000048         ;   address in R1
+   37 00000048         ;
+   38 00000048         
+   39 00000048 E3A0A000        LDR              R10, =0     ; counter1 initiali
+                                                            sed to 0
+   40 0000004C E3A0C000        LDR              R12, =0     ; addressSizeC init
+                                                            ialised to 0
+   41 00000050         forlp1
+   42 00000050 E15A0002        CMP              R10, R2     ; for (counter1 <= 
+                                                            size of A)
+   43 00000054 2A000012        BHS              endloop     ; {
+   44 00000058 E28AA001        ADD              R10, R10, #1 ; counter1++
+   45 0000005C E5939000        LDR              R9, [R3]    ; load char into R9
+                                                             }
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   46 00000060 E3A07000        LDR              R7, =0      ; counter2 initiali
+                                                            sed to 0
+   47 00000064 E59F5084        LDR              R5, =elemsB ; reload
+   48 00000068         forlp2
+   49 00000068 E1570004        CMP              R7, R4      ; for (counter2 <= 
+                                                            size of B)
+   50 0000006C 8A00000A        BHI              endloop2
+   51 00000070 E2877001        ADD              R7, R7, #1  ; counter2++
+   52 00000074 E595B000        LDR              R11, [R5]   ; load char into R1
+                                                            1
+   53 00000078         
+   54 00000078 E159000B        CMP              R9, R11     ; if (A = B) 
+   55 0000007C 1A000004        BNE              endwhile    ; {
+   56 00000080 E5819000        STR              R9, [R1]    ; address elemsC in
+                                                            to R8
+   57 00000084 E2811004        ADD              R1, R1, #4  ; memory++
+   58 00000088 E28CC001        ADD              R12, R12, #1 ; SizeC++
+   59 0000008C E580C000        STR              R12, [R0]   ; }
+   60 00000090 EA000001        B                endloop2
+   61 00000094         endwhile
+   62 00000094 E2855004        ADD              R5, R5, #4  ; addressElemsB++
+   63 00000098 EAFFFFF2        B                forlp2
+   64 0000009C         endloop2
+   65 0000009C E2833004        ADD              R3, R3, #4  ; addressElemsA++
+   66 000000A0 EAFFFFEA        B                forlp1
+   67 000000A4         endloop
+   68 000000A4         
+   69 000000A4 EAFFFFFE 
+                       STOP    B                STOP
+   70 000000A8         
+   71 000000A8 00000004 
+                       sizeA   DCD              4
+   72 000000AC 00000008 
+              00000007 
+              00000006 
+              00000003 elemsA  DCD              8, 7, 6, 3
+   73 000000BC         
+   74 000000BC 00000009 
+                       sizeB   DCD              9
+   75 000000C0 00000014 
+              00000008 
+              0000000E 
+              00000005 
+              00000007 
+              00000002 
+              00000009 
+              0000000C 
+              00000011 elemsB  DCD              20, 8, 14, 5, 7, 2, 9, 12, 17
+   76 000000E4         
+   77 000000E4                 END
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\lab-3-6-intersection.d -o.\objects\lab-3-6-intersection.o -IC:\Keil_v5\A
+RM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --prede
+fine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 528" --list=.\listings
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+\lab-3-6-intersection.lst Lab-3-6-Intersection.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 6 in file Lab-3-6-Intersection.s
+   Uses
+      None
+Comment: RESET unused
+STOP 000000A4
+
+Symbol: STOP
+   Definitions
+      At line 69 in file Lab-3-6-Intersection.s
+   Uses
+      At line 69 in file Lab-3-6-Intersection.s
+Comment: STOP used once
+elemsA 000000AC
+
+Symbol: elemsA
+   Definitions
+      At line 72 in file Lab-3-6-Intersection.s
+   Uses
+      At line 24 in file Lab-3-6-Intersection.s
+Comment: elemsA used once
+elemsB 000000C0
+
+Symbol: elemsB
+   Definitions
+      At line 75 in file Lab-3-6-Intersection.s
+   Uses
+      At line 28 in file Lab-3-6-Intersection.s
+      At line 47 in file Lab-3-6-Intersection.s
+
+endloop 000000A4
+
+Symbol: endloop
+   Definitions
+      At line 67 in file Lab-3-6-Intersection.s
+   Uses
+      At line 43 in file Lab-3-6-Intersection.s
+Comment: endloop used once
+endloop2 0000009C
+
+Symbol: endloop2
+   Definitions
+      At line 64 in file Lab-3-6-Intersection.s
+   Uses
+      At line 50 in file Lab-3-6-Intersection.s
+      At line 60 in file Lab-3-6-Intersection.s
+
+endwhile 00000094
+
+Symbol: endwhile
+   Definitions
+      At line 61 in file Lab-3-6-Intersection.s
+   Uses
+      At line 55 in file Lab-3-6-Intersection.s
+Comment: endwhile used once
+forlp1 00000050
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+
+Symbol: forlp1
+   Definitions
+      At line 41 in file Lab-3-6-Intersection.s
+   Uses
+      At line 66 in file Lab-3-6-Intersection.s
+Comment: forlp1 used once
+forlp2 00000068
+
+Symbol: forlp2
+   Definitions
+      At line 48 in file Lab-3-6-Intersection.s
+   Uses
+      At line 63 in file Lab-3-6-Intersection.s
+Comment: forlp2 used once
+sizeA 000000A8
+
+Symbol: sizeA
+   Definitions
+      At line 71 in file Lab-3-6-Intersection.s
+   Uses
+      At line 22 in file Lab-3-6-Intersection.s
+Comment: sizeA used once
+sizeB 000000BC
+
+Symbol: sizeB
+   Definitions
+      At line 74 in file Lab-3-6-Intersection.s
+   Uses
+      At line 26 in file Lab-3-6-Intersection.s
+Comment: sizeB used once
+11 symbols
+345 symbols in table
