@@ -1,0 +1,117 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;
+    2 00000000         ; CSU11021 Introduction to Computing I 2019/2020
+    3 00000000         ; Flow Control
+    4 00000000         ;
+    5 00000000         
+    6 00000000                 AREA             RESET, CODE, READONLY
+    7 00000000                 ENTRY
+    8 00000000         
+    9 00000000         ; (i)
+   10 00000000         ; if (h >= 13) {
+   11 00000000         ;  h = h - 12;
+   12 00000000         ; }
+   13 00000000         
+   14 00000000         
+   15 00000000         ; (ii)
+   16 00000000         ; if (a > b) {
+   17 00000000         ; i = i + 1;
+   18 00000000         ; } else {
+   19 00000000         ; i = i - 1;
+   20 00000000         ; }
+   21 00000000         
+   22 00000000         
+   23 00000000         ; (iii)
+   24 00000000         ; if (v < 10) {
+   25 00000000         ;  a = 1;
+   26 00000000         ; }
+   27 00000000         ; else if (v < 100) {
+   28 00000000         ;  a = 10;
+   29 00000000         ; }
+   30 00000000         ; else if (v < 1000) {
+   31 00000000         ;  a = 100;
+   32 00000000         ; }
+   33 00000000         ; else {
+   34 00000000         ;  a = 0;
+   35 00000000         ; }
+   36 00000000         
+   37 00000000         
+   38 00000000         ; (iv)
+   39 00000000         ; i = 3;
+   40 00000000         ; while (i < 1000) {
+   41 00000000         ;  a = a + i;
+   42 00000000         ;  i = i + 3;
+   43 00000000         ; }
+   44 00000000         
+   45 00000000         
+   46 00000000         ; (v) 
+   47 00000000         ; for (int i = 3; i < 1000; i = i + 3) {
+   48 00000000         ;  a = a + i;
+   49 00000000         ; }
+   50 00000000         
+   51 00000000         
+   52 00000000         ; (vi)
+   53 00000000         ; p = 1;
+   54 00000000         ; do {
+   55 00000000         ;  p = p * 10;
+   56 00000000         ; } while (v < p);
+   57 00000000         
+   58 00000000         
+   59 00000000         ; (vii)
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   60 00000000         ; if (ch >= 'A' && ch <= 'Z') {
+   61 00000000         ;  upper = upper + 1;
+   62 00000000         ; }
+   63 00000000         
+   64 00000000         
+   65 00000000         ; (viii)
+   66 00000000         ; if (ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u
+                       ')
+   67 00000000         ; {
+   68 00000000         ;  v = v + 1;
+   69 00000000         ; }
+   70 00000000         
+   71 00000000         
+   72 00000000 EAFFFFFE 
+                       STOP    B                STOP
+   73 00000004         
+   74 00000004                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\lab-2-1-flowcontrol.d -o.\objects\lab-2-1-flowcontrol.o -IC:\Keil_v528\A
+RM\RV31\INC -IC:\Keil_v528\ARM\CMSIS\Include -IC:\Keil_v528\ARM\INC\Philips --p
+redefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 528" --list=.\list
+ings\lab-2-1-flowcontrol.lst Lab-2-1-FlowControl.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 6 in file Lab-2-1-FlowControl.s
+   Uses
+      None
+Comment: RESET unused
+STOP 00000000
+
+Symbol: STOP
+   Definitions
+      At line 72 in file Lab-2-1-FlowControl.s
+   Uses
+      At line 72 in file Lab-2-1-FlowControl.s
+Comment: STOP used once
+2 symbols
+334 symbols in table
